@@ -1,9 +1,9 @@
-# Projeto Clinica 2026 - 20/08/2026 19:06:01,68 
+# Projeto Clinica 2026 - 20/08/2026 19:10:32,92 
  
  
  
 ## Informações do sistema 
-- Data e hora: 20/08/2026 19:06:01,68 
+- Data e hora: 20/08/2026 19:10:32,92 
 - Usuário: admin 
 - Computador: ACER-LAP 
 - Diretório atual: C:\dev\php\clinica 
@@ -12,10 +12,8 @@
 <img src="https://github.com/Prof-Josimar/crud_php_poo_2026/blob/main/public/imagens/logo.png" width="300"> 
  
  M README.md
- M public/layout.php
-?? public/medico-delete.php
-?? public/medico-edit.php
-?? public/medico-list.php
+ M public/medico-list.php
+ M src/DAO/MedicoDAO.php
  
  
 ## Autor 

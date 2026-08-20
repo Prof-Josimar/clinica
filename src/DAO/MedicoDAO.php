@@ -151,4 +151,23 @@ class MedicoDAO
         return $stmt->execute([':id' => $id]);
     }
 
+
+
+// PESQUISAR POR NOME (com especialidades já carregadas)
+public function findByNome(string $nome): array
+{
+    $sql = "SELECT id, nome, telefone, cpf, endereco, crm, created_at, updated_at 
+            FROM medicos 
+            WHERE nome LIKE :nome";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute([':nome' => "%$nome%"]);
+    $medicos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($medicos as &$medico) {
+        $medico['especialidades'] = $this->buscarEspecialidadesDoMedico($medico['id']);
+    }
+
+    return $medicos;
+}
+
 }

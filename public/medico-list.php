@@ -6,7 +6,14 @@ use App\DAO\MedicoDAO;
 use App\Utils\Formatter;
 
 $dao = new MedicoDAO();
-$medicos = $dao->findAll();
+
+$nomePesquisa = trim($_GET['nome'] ?? '');
+
+if ($nomePesquisa !== '') {
+    $medicos = $dao->findByNome($nomePesquisa);
+} else {
+    $medicos = $dao->findAll();
+}
 
 ob_start();
 ?>
@@ -16,8 +23,25 @@ ob_start();
 
     <a href="/medico-create.php" class="btn btn-primary mb-3">Novo Médico</a>
 
+    <form method="GET" action="/medico-list.php" class="row g-2 mb-3">
+        <div class="col-auto flex-grow-1">
+            <input type="text" name="nome" class="form-control" placeholder="Pesquisar por nome..."
+                   value="<?= htmlspecialchars($nomePesquisa) ?>">
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-outline-light">Pesquisar</button>
+            <?php if ($nomePesquisa !== ''): ?>
+                <a href="/medico-list.php" class="btn btn-outline-secondary">Limpar</a>
+            <?php endif; ?>
+        </div>
+    </form>
+
     <?php if (empty($medicos)): ?>
-        <div class="alert alert-info">Nenhum médico cadastrado.</div>
+        <div class="alert alert-info">
+            <?= $nomePesquisa !== ''
+                ? 'Nenhum médico encontrado para "' . htmlspecialchars($nomePesquisa) . '".'
+                : 'Nenhum médico cadastrado.' ?>
+        </div>
     <?php else: ?>
         <div class="table-responsive">
             <table class="table table-striped table-hover align-middle bg-white rounded">
@@ -51,8 +75,7 @@ ob_start();
                             </td>
                             <td>
                                 <a href="/medico-edit.php?id=<?= $medico['id'] ?>" class="btn btn-sm btn-warning">Alterar</a>
-                                <a href="/medico-delete.php?id=<?= $medico['id'] ?>" class="btn btn-sm btn-danger"
-                                   onclick="return confirm('Tem certeza que deseja excluir este médico?');">Excluir</a>
+                                <a href="/medico-delete.php?id=<?= $medico['id'] ?>" class="btn btn-sm btn-danger">Excluir</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
