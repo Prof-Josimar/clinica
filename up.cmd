@@ -79,5 +79,5 @@ git commit -m "first commit"
 git branch -M main
 git push -u origin main
 
-start "" "https://github.com/Prof-Josimar/crud_php_poo_2026"
+start "" "https://github.com/Prof-Josimar/clinica"
 
