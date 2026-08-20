@@ -1,9 +1,9 @@
-# Projeto Clinica 2026 - 20/08/2026 19:17:24,96 
+# Projeto Clinica 2026 - 20/08/2026 19:21:28,87 
  
  
  
 ## Informações do sistema 
-- Data e hora: 20/08/2026 19:17:24,96 
+- Data e hora: 20/08/2026 19:21:28,87 
 - Usuário: admin 
 - Computador: ACER-LAP 
 - Diretório atual: C:\dev\php\clinica 
