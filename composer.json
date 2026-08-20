@@ -1,0 +1,16 @@
+{
+    "name": "admin/aulapdo",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+
+    "authors": [
+        {
+            "name": "profjosimar",
+            "email": "josimar.ribeiro@prof.eteprc.faetec.rj.gov.br"
+        }
+    ],
+    "require": {}
+}

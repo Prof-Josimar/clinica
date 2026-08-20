@@ -1,0 +1,38 @@
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+error_log
+
+# Cache
+cache/
+tmp/
+*.tmp
+
+# Configurações locais
+.env
+.env.local
+.env.*.local
+
+# Composer
+/vendor/
+/composer.lock
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+
+# Arquivos de build
+/node_modules/
+/dist/
+/build/
+
+# Sessões PHP
+*.sess
+
+# Arquivos gerados
+/public/uploads/
