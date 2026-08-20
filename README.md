@@ -1,9 +1,9 @@
-# Projeto Clinica 2026 - 20/08/2026 19:11:17,29 
+# Projeto Clinica 2026 - 20/08/2026 19:17:24,96 
  
  
  
 ## Informações do sistema 
-- Data e hora: 20/08/2026 19:11:17,29 
+- Data e hora: 20/08/2026 19:17:24,96 
 - Usuário: admin 
 - Computador: ACER-LAP 
 - Diretório atual: C:\dev\php\clinica 
@@ -12,8 +12,6 @@
 <img src="https://github.com/Prof-Josimar/crud_php_poo_2026/blob/main/public/imagens/logo.png" width="300"> 
  
  M README.md
- D "sql-banco/clinica2026-08-20 18_58_33_58.sql"
-?? sql-banco/banco.sql
  
  
 ## Autor 
