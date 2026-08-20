@@ -43,7 +43,7 @@
         <div class="container-fluid">
 
             <!-- Marca -->
-            <a class="navbar-brand" href="/index.php">Sistema Financeiro</a>
+            <a class="navbar-brand" href="/index.php">Clinica Médica</a>
 
             <!-- Botão responsivo -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSistema">
@@ -57,7 +57,7 @@
                     <!-- PESSOAS -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Pessoas
+                            Pacientes
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -68,21 +68,18 @@
                         </ul>
                     </li>
 
-                    <!-- MOVIMENTAÇÕES -->
+                    <!-- Especialidades -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Movimentações
+                            Especialidades
                         </a>
+
+
                         <ul class="dropdown-menu">
-                            <li>
-                                <a class="dropdown-item" href="/movimentacao-create.php">Nova</a>
-                                <a class="dropdown-item" href="/movimentacao-list.php">Listar</a>
-                                <a class="dropdown-item" href="/saldo-resumido.php">Saldo Resumido</a>
-
-
-
-                            </li>
+                            <li><a class="dropdown-item" href="/especialidade-create.php">Cadastrar</a></li>
+                            <li><a class="dropdown-item" href="/especialidade-list.php">Listar</a></li>
                         </ul>
+
                     </li>
 
                 </ul>
@@ -96,14 +93,14 @@
         if (isset($content)) {
             echo $content;
         } else {
-            echo "<h1>Bem-vindo ao Sistema Financeiro!</h1>";
+            echo "<h1>Sistema Clinica Médica!</h1>";
         }
         ?>
     </main>
 
     <!-- Rodapé -->
     <footer class="bg-dark text-white text-center py-3 mt-auto">
-        <p>&copy; <?php echo date("Y"); ?> - Sistema Financeiro</p>
+        <p>&copy; <?php echo date("Y"); ?> - Sistema Clinica Médica</p>
         <p id="relogio"></p>
     </footer>
 

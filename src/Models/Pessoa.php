@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Models;
-
 class Pessoa
+
 {
     private ?int $id = null;
     private string $nome;
