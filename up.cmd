@@ -1,7 +1,7 @@
 @echo off
 chcp 65001
 
-set "project_name=Projeto PHP Aulas 2026 - %date% %time%"
+set "project_name=Projeto Clinica 2026 - %date% %time%"
 set "author=Josimar Ribeiro"
 set "filename=README.md"
 set "date_time=%DATE% %TIME%"
@@ -12,31 +12,6 @@ echo # %project_name% > %filename%
 echo. >> %filename%
 
 
-echo Menu → link para /saldo-resumido.php.>> %filename%
-echo. >> %filename%
-echo saldo-resumido.php → chama $dao->getSaldosResumidos() e lista todas as pessoas com seus saldos.>> %filename%
-echo. >> %filename%
-echo Cada linha tem um botão Ver Extrato, que envia idPessoa e nome para movimentacao-detalhe.php.>> %filename%
-echo. >> %filename%
-echo Assim você tem:>> %filename%
-echo. >> %filename%
-echo Visão geral: todos os saldos resumidos.>> %filename%
-echo. >> %filename%
-echo Visão detalhada: extrato completo da pessoa selecionada.>> %filename%
-echo. >> %filename%
-echo Estrutura final>> %filename%
-echo. >> %filename%
-echo movimentacao-create.php → pesquisa pessoa e permite depositar, sacar, transferir.>> %filename%
-echo. >> %filename%
-echo transferir.php → pesquisa destinatário e envia origem/destino para movimentar.php.>> %filename%
-echo. >> %filename%
-echo movimentar.php → grava operação (depósito, saque ou transferência).>> %filename%
-echo. >> %filename%
-echo movimentacao-list.php → lista todas as movimentações (detalhes por pessoa via botão).>> %filename%
-echo. >> %filename%
-echo movimentacao-detalhe.php → extrato detalhado + saldo da pessoa.>> %filename%
-echo. >> %filename%
-echo saldo-resumido.php → mostra saldo atual de todas as pessoas, sem parâmetro.>> %filename%
 echo. >> %filename%
 echo. >> %filename%
 
