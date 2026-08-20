@@ -1,1 +1,0 @@
-php create_tables.php
