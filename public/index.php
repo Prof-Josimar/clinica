@@ -46,6 +46,5 @@ $content = "
 
 
 
-
 // Inclui o layout (que usa $content)
 include "layout.php";

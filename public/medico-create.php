@@ -50,7 +50,7 @@ ob_start();
 
 <div class="glass-card p-4 text-white mx-auto" style="max-width: 700px;">
     <h2 class="mb-4">Cadastrar Médico</h2>
-
+        // na primera execução esta mensagem é vazia , apos um post ela é alterada no bloco acima na linha 39 ou 42 ai sim exebe algo
     <?php if ($mensagem): ?>
         <div class="alert alert-<?= $tipoMensagem ?>" role="alert">
             <?= htmlspecialchars($mensagem) ?>
