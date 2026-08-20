@@ -57,13 +57,13 @@
                     <!-- PESSOAS -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Pacientes
+                            Medicos
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="/pessoa-create.php">Cadastrar</a>
-                                <a class="dropdown-item" href="/pessoa-listar.php">Listar</a>
-                                <a class="dropdown-item" href="/pessoa-pesquisar.php">Pesquisar</a>
+                                <a class="dropdown-item" href="/medico-create.php">Cadastrar</a>
+                                <a class="dropdown-item" href="/medico-listar.php">Listar</a>
+                                <a class="dropdown-item" href="/medico-pesquisar.php">Pesquisar</a>
                             </li>
                         </ul>
                     </li>

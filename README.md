@@ -1,9 +1,9 @@
-# Projeto Clinica 2026 - 20/08/2026 18:52:12,42 
+# Projeto Clinica 2026 - 20/08/2026 18:58:48,50 
  
  
  
 ## Informações do sistema 
-- Data e hora: 20/08/2026 18:52:12,43 
+- Data e hora: 20/08/2026 18:58:48,50 
 - Usuário: admin 
 - Computador: ACER-LAP 
 - Diretório atual: C:\dev\php\clinica 
@@ -13,6 +13,9 @@
  
  M README.md
  M public/layout.php
+?? public/medico-create.php
+?? sql-banco/
+?? src/DAO/MedicoDAO.php
  
  
 ## Autor 
