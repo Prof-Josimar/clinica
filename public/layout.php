@@ -62,7 +62,7 @@
                         <ul class="dropdown-menu">
                             <li>
                                 <a class="dropdown-item" href="/medico-create.php">Cadastrar</a>
-                                <a class="dropdown-item" href="/medico-listar.php">Listar</a>
+                                <a class="dropdown-item" href="/medico-list.php">Listar</a>
                                 <a class="dropdown-item" href="/medico-pesquisar.php">Pesquisar</a>
                             </li>
                         </ul>
