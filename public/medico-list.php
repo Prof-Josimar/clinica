@@ -26,7 +26,7 @@ ob_start();
     <form method="GET" action="/medico-list.php" class="row g-2 mb-3">
         <div class="col-auto flex-grow-1">
             <input type="text" name="nome" class="form-control" placeholder="Pesquisar por nome..."
-                   value="<?= htmlspecialchars($nomePesquisa) ?>">
+                value="<?= htmlspecialchars($nomePesquisa) ?>">
         </div>
         <div class="col-auto">
             <button type="submit" class="btn btn-outline-light">Pesquisar</button>
@@ -69,11 +69,15 @@ ob_start();
                                     <span class="text-muted">-</span>
                                 <?php else: ?>
                                     <?php foreach ($medico['especialidades'] as $especialidade): ?>
-                                        <span class="badge bg-info text-dark"><?= htmlspecialchars($especialidade['descricao']) ?></span>
+                                        <span
+                                            class="badge bg-info text-dark"><?= htmlspecialchars($especialidade['descricao']) ?></span>
                                     <?php endforeach; ?>
                                 <?php endif; ?>
                             </td>
                             <td>
+                                <a href="/medico-horarios.php?id=<?= (int) $medico['id'] ?>" class="btn btn-sm btn-success">
+                                    Plantão
+                                </a>
                                 <a href="/medico-edit.php?id=<?= $medico['id'] ?>" class="btn btn-sm btn-warning">Alterar</a>
                                 <a href="/medico-delete.php?id=<?= $medico['id'] ?>" class="btn btn-sm btn-danger">Excluir</a>
                             </td>

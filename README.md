@@ -1,4 +1,4 @@
-# Projeto PHP Aulas 2026 - 20/08/2026 22:01:06,51 
+# Projeto PHP Aulas 2026 - 20/08/2026 22:08:05,08 
  
 Menu → link para /saldo-resumido.php.
  
@@ -28,7 +28,7 @@ saldo-resumido.php → mostra saldo atual de todas as pessoas, sem parâmetro.
  
  
 ## Informações do sistema 
-- Data e hora: 20/08/2026 22:01:06,51 
+- Data e hora: 20/08/2026 22:08:05,08 
 - Usuário: admin 
 - Computador: FE16 
 - Diretório atual: C:\dev\php\clinica 
@@ -37,7 +37,8 @@ saldo-resumido.php → mostra saldo atual de todas as pessoas, sem parâmetro.
 <img src="https://github.com/Prof-Josimar/crud_php_poo_2026/blob/main/public/imagens/logo.png" width="300"> 
  
  M README.md
- M sql-banco/banco.sql
+ M public/medico-list.php
+?? public/medico-horarios.php
  
  
 ## Autor 
