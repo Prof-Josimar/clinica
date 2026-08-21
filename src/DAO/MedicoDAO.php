@@ -153,21 +153,147 @@ class MedicoDAO
 
 
 
-// PESQUISAR POR NOME (com especialidades já carregadas)
-public function findByNome(string $nome): array
+    public function findByNome(string $nome): array
 {
     $sql = "SELECT id, nome, telefone, cpf, endereco, crm, created_at, updated_at 
             FROM medicos 
             WHERE nome LIKE :nome";
+
     $stmt = $this->conn->prepare($sql);
-    $stmt->execute([':nome' => "%$nome%"]);
+
+    $stmt->execute([
+        ':nome' => "%$nome%"
+    ]);
+
     $medicos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($medicos as &$medico) {
-        $medico['especialidades'] = $this->buscarEspecialidadesDoMedico($medico['id']);
+        $medico['especialidades'] =
+            $this->buscarEspecialidadesDoMedico($medico['id']);
     }
 
     return $medicos;
 }
 
+
+public function findHorarios(int $medicoId): array
+{
+    $sql = "
+        SELECT
+            id,
+            dia_semana,
+            turno,
+            limite_atendimentos
+        FROM medico_horario
+        WHERE medico_id = :medico_id
+        ORDER BY dia_semana, turno
+    ";
+
+    $stmt = $this->conn->prepare($sql);
+
+    $stmt->execute([
+        ':medico_id' => $medicoId
+    ]);
+
+    $horarios = [];
+
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
+        $dia = (int) $row['dia_semana'];
+        $turno = $row['turno'];
+
+        $horarios[$dia][$turno] = [
+            'id' => (int) $row['id'],
+            'limite_atendimentos' => (int) $row['limite_atendimentos']
+        ];
+    }
+
+    return $horarios;
 }
+
+
+public function updateHorarios(int $medicoId, array $horarios): bool
+{
+    try {
+
+        $this->conn->beginTransaction();
+
+        // Apaga os horários antigos
+        $sqlDelete = "
+            DELETE FROM medico_horario
+            WHERE medico_id = :medico_id
+        ";
+
+        $stmtDelete = $this->conn->prepare($sqlDelete);
+
+        $stmtDelete->execute([
+            ':medico_id' => $medicoId
+        ]);
+
+
+        // Insere somente os horários marcados
+        $sqlInsert = "
+            INSERT INTO medico_horario
+            (
+                medico_id,
+                dia_semana,
+                turno,
+                limite_atendimentos
+            )
+            VALUES
+            (
+                :medico_id,
+                :dia_semana,
+                :turno,
+                :limite_atendimentos
+            )
+        ";
+
+        $stmtInsert = $this->conn->prepare($sqlInsert);
+
+
+        foreach ($horarios as $dia => $turnos) {
+
+            foreach ($turnos as $turno => $dados) {
+
+                if (!isset($dados['ativo'])) {
+                    continue;
+                }
+
+                $limite = (int) ($dados['limite'] ?? 10);
+
+                if ($limite < 1) {
+                    $limite = 1;
+                }
+
+                $stmtInsert->execute([
+                    ':medico_id' => $medicoId,
+                    ':dia_semana' => (int) $dia,
+                    ':turno' => $turno,
+                    ':limite_atendimentos' => $limite
+                ]);
+            }
+        }
+
+
+        $this->conn->commit();
+
+        return true;
+
+    } catch (\Exception $e) {
+
+        if ($this->conn->inTransaction()) {
+            $this->conn->rollBack();
+        }
+
+        return false;
+    }
+}
+
+
+
+
+}
+
+
+

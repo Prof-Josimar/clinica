@@ -155,4 +155,6 @@ class Medico
             fn(Especialidade $e) => $e->getId() !== $especialidadeId
         ));
     }
+   
+
 }
