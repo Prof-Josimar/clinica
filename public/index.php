@@ -35,7 +35,7 @@ $horaAtual = $stmt->fetchColumn();
 $content = "
 <div class='d-flex justify-content-center align-items-center' style='height:70vh;'>
     <div class='card text-center p-4 glass-card'>
-        <h2 class='mb-3 text-light'>💸 Sistema de Clinica Médica 💰</h2>
+        <h2 class='mb-3 text-light'>👨‍⚕️  👩‍⚕️ 💊 Sistema de Clinica Médica  🩺⚕️ 🏥 </h2>
         <p class='fs-5 text-light'><br><i>
            Conexão bem-sucedida! 👌</i><br><hr>
             Hora atual do MySQL: <strong>{$horaAtual}</strong>
@@ -48,3 +48,6 @@ $content = "
 
 // Inclui o layout (que usa $content)
 include "layout.php";
+
+
+
