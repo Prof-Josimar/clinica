@@ -28,10 +28,9 @@ CREATE TABLE IF NOT EXISTS `especialidades` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Copiando dados para a tabela clinica.especialidades: ~20 rows (aproximadamente)
-DELETE FROM `especialidades`;
 INSERT INTO `especialidades` (`id`, `descricao`, `sigla`, `ativo`, `created_at`, `updated_at`) VALUES
 	(1, 'CARDIOLOGIA', 'CARD', 1, '2026-08-20 21:02:43', '2026-08-20 21:24:27'),
 	(2, 'DERMATOLOGIA', 'DERM', 1, '2026-08-20 21:02:43', '2026-08-20 21:24:54'),
@@ -65,13 +64,13 @@ CREATE TABLE IF NOT EXISTS `medicos` (
   `created_at` timestamp NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Copiando dados para a tabela clinica.medicos: ~2 rows (aproximadamente)
-DELETE FROM `medicos`;
+-- Copiando dados para a tabela clinica.medicos: ~3 rows (aproximadamente)
 INSERT INTO `medicos` (`id`, `nome`, `telefone`, `cpf`, `endereco`, `crm`, `created_at`, `updated_at`) VALUES
 	(1, 'MANOEL BANDEIRA', '26611866', '12345678910', 'RUA DOS OPERARIOS', '523144', '2026-08-20 21:57:33', '2026-08-20 21:57:33'),
-	(3, 'PATRICIA RAMOS', '36911893', '14785269', 'RUA DA FEIRA', '52987', '2026-08-20 22:10:02', '2026-08-20 22:10:02');
+	(3, 'PATRICIA RAMOS', '36911893', '14785269', 'RUA DA FEIRA', '52987', '2026-08-20 22:10:02', '2026-08-20 22:10:02'),
+	(4, 'BIA', NULL, '78945612314', NULL, '987654', '2026-08-21 10:34:26', '2026-08-21 10:34:26');
 
 -- Copiando estrutura para tabela clinica.medico_especialidade
 CREATE TABLE IF NOT EXISTS `medico_especialidade` (
@@ -84,14 +83,14 @@ CREATE TABLE IF NOT EXISTS `medico_especialidade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Copiando dados para a tabela clinica.medico_especialidade: ~6 rows (aproximadamente)
-DELETE FROM `medico_especialidade`;
 INSERT INTO `medico_especialidade` (`medico_id`, `especialidade_id`) VALUES
 	(1, 1),
 	(1, 4),
 	(1, 7),
-	(3, 8),
+	(1, 8),
 	(1, 10),
-	(3, 10);
+	(3, 10),
+	(4, 13);
 
 -- Copiando estrutura para tabela clinica.medico_horario
 CREATE TABLE IF NOT EXISTS `medico_horario` (
@@ -103,14 +102,9 @@ CREATE TABLE IF NOT EXISTS `medico_horario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `uk_medico_dia_turno` (`medico_id`,`dia_semana`,`turno`),
   CONSTRAINT `1` FOREIGN KEY (`medico_id`) REFERENCES `medicos` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Copiando dados para a tabela clinica.medico_horario: ~0 rows (aproximadamente)
-DELETE FROM `medico_horario`;
-INSERT INTO `medico_horario` (`id`, `medico_id`, `dia_semana`, `turno`, `limite_atendimentos`) VALUES
-	(4, 1, 0, 'manha', 10),
-	(5, 1, 0, 'tarde', 10),
-	(6, 1, 6, 'noite', 10);
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

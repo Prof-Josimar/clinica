@@ -9,7 +9,16 @@ $dao = new EspecialidadeDAO();
 $mensagem = "";
 $tipoMensagem = "";
 
-$id = isset($_GET['id']) ? (int)$_GET['id'] : (isset($_POST['id']) ? (int)$_POST['id'] : 0);
+//$id = isset($_GET['id']) ? (int)$_GET['id'] : (isset($_POST['id']) ? (int)$_POST['id'] : 0);
+// comentei p operador ternario aninhado anterior para usar if else aninhado por legibilidade
+if (isset($_GET['id'])) {
+    $id = (int)$_GET['id'];
+} elseif (isset($_POST['id'])) {
+    $id = (int)$_POST['id'];
+} else {
+    $id = 0;
+}
+
 
 if ($id <= 0) {
     header('Location: /especialidade-list.php');
