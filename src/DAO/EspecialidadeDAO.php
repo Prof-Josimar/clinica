@@ -41,16 +41,7 @@ class EspecialidadeDAO
     }
 
 
-    public function findByDescricao(string $descricao): array
-    {
-        $sql = "SELECT * FROM especialidades 
-                WHERE descricao LIKE :descricao";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute([':descricao' => "%$descricao%"]);
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
+    
     // BUSCAR POR ID
     public function findById(int $id): ?array
     {
@@ -92,6 +83,20 @@ class EspecialidadeDAO
         $stmt = $this->conn->prepare($sql);
         return $stmt->execute([':id' => $id]);
     }
+
+
+
+
+public function findByDescricao(string $descricao): array
+{
+    $sql = "SELECT * FROM especialidades 
+            WHERE descricao LIKE :descricao
+            ORDER BY descricao ASC";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute([':descricao' => "%$descricao%"]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 
 }

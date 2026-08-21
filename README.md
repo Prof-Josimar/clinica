@@ -1,16 +1,22 @@
-# Projeto PHP Aulas 2026 - 21/08/2026  7:04:24,15 
+# Projeto Clinica 2026 - 21/08/2026  7:40:22,05 
+ 
+ 
  
 ## Informações do sistema 
-- Data e hora: 21/08/2026  7:04:24,15 
+- Data e hora: 21/08/2026  7:40:22,05 
 - Usuário: admin 
-- Computador: FE16 
+- Computador: ACER-LAP 
 - Diretório atual: C:\dev\php\clinica 
-- git version 2.55.0.windows.3 
+- git version 2.52.0.windows.1 
  
 <img src="https://github.com/Prof-Josimar/crud_php_poo_2026/blob/main/public/imagens/logo.png" width="300"> 
  
  M README.md
- M public/medico-create.php
+ M public/especialidade-list.php
+ M public/medico-list.php
+ M src/DAO/EspecialidadeDAO.php
+ M src/DAO/MedicoDAO.php
+ M src/Utils/Formatter.php
  
  
 ## Autor 

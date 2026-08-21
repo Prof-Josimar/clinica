@@ -8,13 +8,15 @@ use App\Utils\Formatter;
 $dao = new MedicoDAO();
 
 $nomePesquisa = trim($_GET['nome'] ?? '');
+$especialidadeId = $_GET['especialidade'] ?? null;
 
-if ($nomePesquisa !== '') {
+if ($especialidadeId) {
+    $medicos = $dao->findByEspecialidade((int)$especialidadeId);
+} elseif ($nomePesquisa !== '') {
     $medicos = $dao->findByNome($nomePesquisa);
 } else {
     $medicos = $dao->findAll();
 }
-
 ob_start();
 ?>
 
@@ -63,7 +65,12 @@ ob_start();
                             <td><?= htmlspecialchars($medico['nome']) ?></td>
                             <td><?= htmlspecialchars($medico['crm']) ?></td>
                             <td><?= htmlspecialchars(Formatter::formatCpf($medico['cpf'])) ?></td>
-                            <td><?= htmlspecialchars(Formatter::formatTelefone($medico['telefone'])) ?></td>
+                            <td>
+                                <?= $medico['telefone']
+                                    ? htmlspecialchars(Formatter::formatTelefone($medico['telefone']))
+                                    : '<span class="text-muted">-</span>' ?>
+                            </td>
+
                             <td>
                                 <?php if (empty($medico['especialidades'])): ?>
                                     <span class="text-muted">-</span>

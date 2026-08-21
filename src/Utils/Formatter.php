@@ -16,7 +16,29 @@ class Formatter
         return $cpf;
     }
 
-    public static function formatTelefone(string $telefone): string
+
+public static function formatTelefone(?string $telefone): string
+{
+    if ($telefone === null || $telefone === '') {
+        return '-';
+    }
+
+    // aqui segue sua lógica de formatação
+    $telefone = preg_replace('/\D/', '', $telefone);
+
+    if (strlen($telefone) === 11) {
+        return sprintf("(%s) %s-%s",
+            substr($telefone, 0, 2),
+            substr($telefone, 2, 5),
+            substr($telefone, 7)
+        );
+    }
+
+    return $telefone;
+}
+
+
+    public static function formatTelefone0(string $telefone): string
     {
         $telefone = preg_replace('/\D/', '', $telefone);
 

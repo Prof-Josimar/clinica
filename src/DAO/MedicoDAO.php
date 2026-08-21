@@ -293,6 +293,21 @@ public function updateHorarios(int $medicoId, array $horarios): bool
 
 
 
+public function findByEspecialidade(int $especialidadeId): array
+{
+    $sql = "SELECT m.* 
+            FROM medicos m
+            INNER JOIN medico_especialidade me ON m.id = me.medico_id
+            WHERE me.especialidade_id = :especialidadeId";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute([':especialidadeId' => $especialidadeId]);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
+
 }
 
 
