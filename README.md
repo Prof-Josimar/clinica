@@ -3,9 +3,9 @@
  
  
 ## Informações do sistema 
-- Data e hora: 20/08/2026 20:36:19,33 
+- Data e hora: 21:57 20/08/2026 
 - Usuário: admin 
-- Computador: ACER-LAP 
+- Computador: FE16
 - Diretório atual: C:\dev\php\clinica 
 - git version 2.52.0.windows.1 
  
