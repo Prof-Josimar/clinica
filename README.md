@@ -1,7 +1,7 @@
-# Projeto PHP Aulas 2026 - 20/08/2026 22:08:31,65 
+# Projeto PHP Aulas 2026 - 21/08/2026  7:04:24,15 
  
 ## Informações do sistema 
-- Data e hora: 20/08/2026 22:08:31,65 
+- Data e hora: 21/08/2026  7:04:24,15 
 - Usuário: admin 
 - Computador: FE16 
 - Diretório atual: C:\dev\php\clinica 
@@ -10,6 +10,7 @@
 <img src="https://github.com/Prof-Josimar/crud_php_poo_2026/blob/main/public/imagens/logo.png" width="300"> 
  
  M README.md
+ M public/medico-create.php
  
  
 ## Autor 
