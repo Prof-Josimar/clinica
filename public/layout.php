@@ -113,9 +113,9 @@
             document.getElementById('relogio').textContent = `${data} - ${hora}`;
         }
 
-        // Atualiza a cada segundo
-        setInterval(atualizarRelogio, 1000);
-        atualizarRelogio();
+        // Descomentando abaixo voce tem  um relogio de tempo real que Atualiza a cada segundo
+        //setInterval(atualizarRelogio, 1000);
+        //atualizarRelogio();
     </script>
 
     <!-- Bootstrap JS -->
